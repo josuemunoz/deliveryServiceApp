@@ -16,7 +16,7 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-ar app = {
+var app = {
 	
     // Application Constructor
     initialize: function() {
@@ -58,7 +58,7 @@ ar app = {
         console.log('after init');
 
         push.on('registration', function(data) {
-            console.log('registration event: ' + data.registrationId);
+          alert('registration event: ' + data.registrationId);
 			//localStorage.setItem('registrationId', data.registrationId);
 //alert(data.registrationId);
             var oldRegId = localStorage.getItem('registrationId');
@@ -66,7 +66,7 @@ ar app = {
 			
 			// alert(data.registrationId);
             
-			var appName = "3dlogodesign";
+			var appName = "deliveryApp";
  			var appCategory = "pushNotifications";
 			var d = new Date();
 			var appRegistration = d.getFullYear()+"-"+ d.getMonth() +"-"+ d.getDate();
@@ -79,7 +79,7 @@ ar app = {
                 localStorage.setItem('registrationId', data.registrationId);
                
 				// Post registrationId to your app server as the value has changed
-				
+				/*
 				x = new XMLHttpRequest();
 				//alert(device.model+ " " +device.uuid +" "+device.platform)
 				var sendData  = "?regid="+data.registrationId;
@@ -100,6 +100,7 @@ ar app = {
 				}
 		
 			x.send();
+			*/
 				}
 
             var parentElement = document.getElementById('registration');
