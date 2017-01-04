@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "71408143043",
+    "firebase_url": "https://pushfinal-6a4a3.firebaseio.com",
+    "project_id": "pushfinal-6a4a3",
+    "storage_bucket": "pushfinal-6a4a3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71408143043:android:5ec8177212d870f8",
+        "android_client_info": {
+          "package_name": "com.graphics.deliveryservice"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71408143043-tp4e8s62asfs2fgeecufhr4koovsno7o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
