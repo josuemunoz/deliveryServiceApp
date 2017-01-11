@@ -116,3 +116,4 @@ h1 {
     animation:fade 3000ms infinite;
     -webkit-animation:fade 3000ms infinite;
 }
+.reg{ text-align:center; margin:auto; font-family:Verdana, Geneva, sans-serif; font-size:2em; display:block; width:80%; height:50px;}

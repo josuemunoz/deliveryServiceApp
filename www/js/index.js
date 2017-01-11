@@ -58,14 +58,38 @@ var app = {
         console.log('after init');
 
         push.on('registration', function(data) {
-          alert('registration event: ' + data.registrationId);
+          //alert('registration event: ' + data.registrationId);
 			//localStorage.setItem('registrationId', data.registrationId);
 //alert(data.registrationId);
             var oldRegId = localStorage.getItem('registrationId');
 			//localStorage.setItem('registrationId', data.registrationId);
 			
-			// alert(data.registrationId);
-            
+			
+			x = new XMLHttpRequest();
+				//alert(device.model+ " " +device.uuid +" "+device.platform)
+				var sendData  = "?regid="+data.registrationId;
+					sendData += "&appName="+escape(appName);
+					sendData += "&appCategory="+escape(appCategory);
+					sendData += "&appRegistration="+escape(appRegistration);
+					sendData += "&deviceModel="+escape(device.model);
+					sendData += "&uuid="+escape(device.uuid);
+					sendData += "&devicePlatform="+escape(device.platform);
+					
+					
+				x.open("GET", "http://45graphics.net/curlTest/deliveryserviceapp.php"+sendData, true);
+				x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				x.onreadystatechange = function(){
+						if(x.readyState == 4 && x.status == 200){
+							alert(x.responseText);
+						}
+				}
+		
+			x.send();
+
+			
+			
+			alert(data.registrationId);
+             
 			var appName = "deliveryApp";
  			var appCategory = "pushNotifications";
 			var d = new Date();
@@ -79,7 +103,7 @@ var app = {
                 localStorage.setItem('registrationId', data.registrationId);
                
 				// Post registrationId to your app server as the value has changed
-				/*
+				
 				x = new XMLHttpRequest();
 				//alert(device.model+ " " +device.uuid +" "+device.platform)
 				var sendData  = "?regid="+data.registrationId;
@@ -91,24 +115,25 @@ var app = {
 					sendData += "&devicePlatform="+escape(device.platform);
 					
 					
-				x.open("GET", "http://45graphics.net/curlTest/index.php"+sendData, true);
+				x.open("GET", "http://45graphics.net/curlTest/deliveryserviceapp.php"+sendData, true);
 				x.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 				x.onreadystatechange = function(){
 						if(x.readyState == 4 && x.status == 200){
-							//alert(x.responseText);
+							alert(x.responseText);
 						}
 				}
 		
 			x.send();
-			*/
+			
 				}
-
+/*
             var parentElement = document.getElementById('registration');
             var listeningElement = parentElement.querySelector('.waiting');
             var receivedElement = parentElement.querySelector('.received');
 
             listeningElement.setAttribute('style', 'display:none;');
             receivedElement.setAttribute('style', 'display:block;');
+  */
         });
 
         push.on('error', function(e) {
